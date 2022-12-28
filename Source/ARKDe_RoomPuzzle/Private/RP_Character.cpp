@@ -54,6 +54,16 @@ void ARP_Character::StopJumping()
 	Super::StopJumping();
 }
 
+void ARP_Character::Crouch()
+{
+	Super::Crouch(false);
+}
+
+void ARP_Character::UnCrouch()
+{
+	Super::UnCrouch(false);
+}
+
 void ARP_Character::AddControllerPitchInput(float value)
 {
 	Super::AddControllerPitchInput(bIsLookInversion ? -value : value);
@@ -82,9 +92,12 @@ void ARP_Character::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ARP_Character::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ARP_Character::MoveRight);
-
+	 
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ARP_Character::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ARP_Character::StopJumping);
+
+	PlayerInputComponent->BindAction("Crouch", IE_Pressed, this, &ARP_Character::Crouch);
+	PlayerInputComponent->BindAction("Crouch", IE_Released, this, &ARP_Character::UnCrouch);
 
 	PlayerInputComponent->BindAxis("LookUp", this, &ARP_Character::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookRight", this, &ACharacter::AddControllerYawInput);

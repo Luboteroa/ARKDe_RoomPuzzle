@@ -50,6 +50,9 @@ protected:
 	virtual void Jump() override;
 	virtual void StopJumping() override;
 
+	virtual void Crouch();
+	virtual void UnCrouch();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
