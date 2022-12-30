@@ -36,6 +36,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
 	FName FPSCameraSocketName;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Key")
+	TArray<FName> DoorKeys;
+
 public:
 	// Sets default values for this character's properties
 	ARP_Character();
@@ -46,12 +49,14 @@ protected:
 
 	void MoveForward(float value);
 	void MoveRight(float value);
-
 	virtual void Jump() override;
 	virtual void StopJumping() override;
 
 	virtual void Crouch();
 	virtual void UnCrouch();
+
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Character Features")
+	void BP_Jump();
 
 public:	
 	// Called every frame
@@ -61,5 +66,9 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	virtual void AddControllerPitchInput(float value) override;
+
+	void AddKey(FName NewKey);
+
+	bool HasKey(FName KeyTag);
 
 };

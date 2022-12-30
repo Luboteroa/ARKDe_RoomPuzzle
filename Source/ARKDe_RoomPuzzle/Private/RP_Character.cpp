@@ -47,6 +47,7 @@ void ARP_Character::MoveRight(float value)
 void ARP_Character::Jump()
 {
 	Super::Jump();
+	BP_Jump();
 }
 
 void ARP_Character::StopJumping()
@@ -101,4 +102,14 @@ void ARP_Character::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 
 	PlayerInputComponent->BindAxis("LookUp", this, &ARP_Character::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookRight", this, &ACharacter::AddControllerYawInput);
+}
+
+void ARP_Character::AddKey(FName NewKey)
+{
+	DoorKeys.Add(NewKey);
+}
+
+bool ARP_Character::HasKey(FName KeyTag)
+{
+	return DoorKeys.Contains(KeyTag);
 }
