@@ -8,6 +8,7 @@
 
 class USpringArmComponent;
 class UCameraComponent;
+class ARP_Weapon;
 
 UCLASS()
 class ARKDE_ROOMPUZZLE_API ARP_Character : public ACharacter
@@ -39,6 +40,12 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Key")
 	TArray<FName> DoorKeys;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+	TSubclassOf<ARP_Weapon> InitialWeaponClass;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+	ARP_Weapon* CurrentWeapon;
+
 public:
 	// Sets default values for this character's properties
 	ARP_Character();
@@ -54,6 +61,10 @@ protected:
 
 	virtual void Crouch();
 	virtual void UnCrouch();
+
+	void CreateInitialWeapon();
+	void StartFireWeapon();
+	void StopFireWeapon();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Character Features")
 	void BP_Jump();

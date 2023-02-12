@@ -4,6 +4,7 @@
 #include "RP_Character.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Weapons/RP_Weapon.h"
 
 // Sets default values
 ARP_Character::ARP_Character()
@@ -31,7 +32,7 @@ ARP_Character::ARP_Character()
 void ARP_Character::BeginPlay()
 {
 	Super::BeginPlay();
-	
+	CreateInitialWeapon();
 }
 
 void ARP_Character::MoveForward(float value)
@@ -63,6 +64,34 @@ void ARP_Character::Crouch()
 void ARP_Character::UnCrouch()
 {
 	Super::UnCrouch(false);
+}
+
+void ARP_Character::CreateInitialWeapon()
+{
+	if (IsValid(InitialWeaponClass))
+	{
+		CurrentWeapon = GetWorld()->SpawnActor<ARP_Weapon>(InitialWeaponClass, GetActorLocation(), GetActorRotation());
+		if (IsValid(CurrentWeapon))
+		{
+			CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+		}
+	}
+}
+
+void ARP_Character::StartFireWeapon()
+{
+	if (IsValid(CurrentWeapon)) 
+	{
+		CurrentWeapon->StartFire();
+	}
+}
+
+void ARP_Character::StopFireWeapon()
+{
+	if (IsValid(CurrentWeapon))
+	{
+		CurrentWeapon->StopFire();
+	}
 }
 
 void ARP_Character::AddControllerPitchInput(float value)
@@ -102,6 +131,10 @@ void ARP_Character::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 
 	PlayerInputComponent->BindAxis("LookUp", this, &ARP_Character::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookRight", this, &ACharacter::AddControllerYawInput);
+
+
+	PlayerInputComponent->BindAction("FireWeapon", IE_Pressed, this, &ARP_Character::StartFireWeapon);
+	PlayerInputComponent->BindAction("FireWeapon", IE_Released, this, &ARP_Character::StopFireWeapon);
 }
 
 void ARP_Character::AddKey(FName NewKey)
