@@ -6,6 +6,9 @@
 #include "GameFramework/Actor.h"
 #include "RP_Weapon.generated.h"
 
+class UDamageType;
+class ACharacter;
+
 UCLASS()
 class ARKDE_ROOMPUZZLE_API ARP_Weapon : public AActor
 {
@@ -16,22 +19,35 @@ public:
 	ARP_Weapon();
 
 protected:
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weapon")
+	float Damage;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Weapon")
+	TSubclassOf<UDamageType> DamageType;
+
+	ACharacter* CurrentOwnerCharacter;
+
+protected:
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	virtual void BeginPlay() override; 
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapon")
-	void BP_StartFire();
+	void BP_StartAction();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapon")
-	void BP_StopFire();
+	void BP_StopAction();
 
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	virtual void StartFire() {};
+	virtual void StartAction();
 
 	UFUNCTION(BlueprintCallable)
-	virtual void StopFire() {};
+	virtual void StopAction();
+
+	UFUNCTION(BlueprintCallable)
+	void SetCharacterOwner(ACharacter* NewOwner);
 };

@@ -6,6 +6,7 @@
 #include "Weapons/RP_Weapon.h"
 #include "RP_Rifle.generated.h"
 
+class UParticleSystem;
 /**
  * 
  */
@@ -14,9 +15,30 @@ class ARKDE_ROOMPUZZLE_API ARP_Rifle : public ARP_Weapon
 {
 	GENERATED_BODY()
 
+public:
+
+	ARP_Rifle();
+
 protected:
 
-	virtual void StartFire() override;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "LineTrace|Debug")
+	bool bDrawLineTrace;
 
-	virtual void StopFire() override;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "LineTrace")
+	float TraceLenght;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "LineTrace")
+	FName MuzzleSocketName;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Effects")
+	UParticleSystem* MuzzleEffect;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Effects")
+	UParticleSystem* ImpactEffect;
+
+protected:
+
+	virtual void StartAction() override;
+
+	virtual void StopAction() override;
 };

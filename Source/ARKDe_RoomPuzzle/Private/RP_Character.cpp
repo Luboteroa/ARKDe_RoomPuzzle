@@ -28,6 +28,21 @@ ARP_Character::ARP_Character()
 	TPSCameraComponent->SetupAttachment(SpringArmComponent);
 }
 
+FVector ARP_Character::GetPawnViewLocation() const
+{
+	if (IsValid(FPSCameraComponent) && bUseFirstPersonView)
+	{
+		return FPSCameraComponent->GetComponentLocation();
+	}
+
+	if(IsValid(TPSCameraComponent) && !bUseFirstPersonView)
+	{
+		return TPSCameraComponent->GetComponentLocation();
+	}
+
+	return Super::GetPawnViewLocation(); 
+}
+
 // Called when the game starts or when spawned
 void ARP_Character::BeginPlay()
 {
@@ -73,24 +88,25 @@ void ARP_Character::CreateInitialWeapon()
 		CurrentWeapon = GetWorld()->SpawnActor<ARP_Weapon>(InitialWeaponClass, GetActorLocation(), GetActorRotation());
 		if (IsValid(CurrentWeapon))
 		{
+			CurrentWeapon->SetCharacterOwner(this);
 			CurrentWeapon->AttachToComponent(GetMesh(), FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 		}
 	}
 }
 
-void ARP_Character::StartFireWeapon()
+void ARP_Character::StartWeaponAction()
 {
 	if (IsValid(CurrentWeapon)) 
 	{
-		CurrentWeapon->StartFire();
+		CurrentWeapon->StartAction();
 	}
 }
 
-void ARP_Character::StopFireWeapon()
+void ARP_Character::StopWeaponAction()
 {
 	if (IsValid(CurrentWeapon))
 	{
-		CurrentWeapon->StopFire();
+		CurrentWeapon->StopAction();
 	}
 }
 
@@ -133,8 +149,8 @@ void ARP_Character::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAxis("LookRight", this, &ACharacter::AddControllerYawInput);
 
 
-	PlayerInputComponent->BindAction("FireWeapon", IE_Pressed, this, &ARP_Character::StartFireWeapon);
-	PlayerInputComponent->BindAction("FireWeapon", IE_Released, this, &ARP_Character::StopFireWeapon);
+	PlayerInputComponent->BindAction("WeaponAction", IE_Pressed, this, &ARP_Character::StartWeaponAction);
+	PlayerInputComponent->BindAction("WeaponAction", IE_Released, this, &ARP_Character::StopWeaponAction);
 }
 
 void ARP_Character::AddKey(FName NewKey)

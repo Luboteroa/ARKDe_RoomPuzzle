@@ -43,12 +43,14 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
 	TSubclassOf<ARP_Weapon> InitialWeaponClass;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Weapon")
+	UPROPERTY(BlueprintReadWrite, Category = "Weapon")
 	ARP_Weapon* CurrentWeapon;
 
 public:
 	// Sets default values for this character's properties
 	ARP_Character();
+
+	virtual FVector GetPawnViewLocation() const override;
 
 protected:
 	// Called when the game starts or when spawned
@@ -63,8 +65,8 @@ protected:
 	virtual void UnCrouch();
 
 	void CreateInitialWeapon();
-	void StartFireWeapon();
-	void StopFireWeapon();
+	void StartWeaponAction();
+	void StopWeaponAction();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Character Features")
 	void BP_Jump();
