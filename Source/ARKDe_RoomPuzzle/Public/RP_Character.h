@@ -68,6 +68,8 @@ protected:
 	void StartWeaponAction();
 	void StopWeaponAction();
 
+	void TargetingNewObjective();
+
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Character Features")
 	void BP_Jump();
 

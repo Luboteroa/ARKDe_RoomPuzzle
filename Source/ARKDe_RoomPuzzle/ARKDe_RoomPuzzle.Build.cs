@@ -8,7 +8,7 @@ public class ARKDe_RoomPuzzle : ModuleRules
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
-		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "Cascade" });
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 

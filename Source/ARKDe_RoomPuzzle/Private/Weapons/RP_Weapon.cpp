@@ -37,6 +37,11 @@ void ARP_Weapon::StopAction()
 	BP_StopAction();
 }
 
+void ARP_Weapon::Targeting()
+{
+	BP_Targeting();
+}
+
 void ARP_Weapon::SetCharacterOwner(ACharacter* NewOwner)
 {
 	if (IsValid(NewOwner))

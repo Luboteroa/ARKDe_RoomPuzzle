@@ -38,6 +38,9 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapon")
 	void BP_StopAction();
 
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Weapon")
+	void BP_Targeting();
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
@@ -47,6 +50,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	virtual void StopAction();
+
+	UFUNCTION(BlueprintCallable)
+	virtual void Targeting();
 
 	UFUNCTION(BlueprintCallable)
 	void SetCharacterOwner(ACharacter* NewOwner);

@@ -110,6 +110,14 @@ void ARP_Character::StopWeaponAction()
 	}
 }
 
+void ARP_Character::TargetingNewObjective()
+{
+	if(IsValid(CurrentWeapon))
+	{
+		CurrentWeapon->Targeting();
+	}
+}
+
 void ARP_Character::AddControllerPitchInput(float value)
 {
 	Super::AddControllerPitchInput(bIsLookInversion ? -value : value);
@@ -128,7 +136,6 @@ void ARP_Character::AddControllerPitchInput(float value)
 void ARP_Character::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input
@@ -148,9 +155,10 @@ void ARP_Character::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	PlayerInputComponent->BindAxis("LookUp", this, &ARP_Character::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("LookRight", this, &ACharacter::AddControllerYawInput);
 
-
 	PlayerInputComponent->BindAction("WeaponAction", IE_Pressed, this, &ARP_Character::StartWeaponAction);
 	PlayerInputComponent->BindAction("WeaponAction", IE_Released, this, &ARP_Character::StopWeaponAction);
+
+	PlayerInputComponent->BindAction("Target", IE_Released, this, &ARP_Character::TargetingNewObjective);
 }
 
 void ARP_Character::AddKey(FName NewKey)

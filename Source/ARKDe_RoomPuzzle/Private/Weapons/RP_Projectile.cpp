@@ -9,11 +9,14 @@
 // Sets default values	
 ARP_Projectile::ARP_Projectile()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	CustomRootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("CustomRoot"));
+	RootComponent = CustomRootComponent;
+
 	ProjectileCollision = CreateDefaultSubobject<USphereComponent>(TEXT("ProjectileCollision"));
-	RootComponent = ProjectileCollision;
+	ProjectileCollision->SetupAttachment(CustomRootComponent);
 
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMesh"));
 	ProjectileMesh->SetupAttachment(ProjectileCollision);
@@ -27,7 +30,6 @@ ARP_Projectile::ARP_Projectile()
 void ARP_Projectile::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -36,4 +38,3 @@ void ARP_Projectile::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 
 }
-

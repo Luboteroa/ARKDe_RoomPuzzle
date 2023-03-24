@@ -9,6 +9,7 @@
 class UStaticMeshComponent;
 class UProjectileMovementComponent;
 class USphereComponent;
+class USceneComponent;
 
 UCLASS()
 class ARKDE_ROOMPUZZLE_API ARP_Projectile : public AActor
@@ -18,6 +19,9 @@ class ARKDE_ROOMPUZZLE_API ARP_Projectile : public AActor
 protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	USceneComponent* CustomRootComponent;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	USphereComponent* ProjectileCollision;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
@@ -25,7 +29,7 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UProjectileMovementComponent* ProjectileMovementComponent;
-	
+
 public:	
 	// Sets default values for this actor's properties
 	ARP_Projectile();
@@ -37,5 +41,4 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
 };
