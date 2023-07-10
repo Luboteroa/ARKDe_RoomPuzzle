@@ -9,6 +9,8 @@
 class USpringArmComponent;
 class UCameraComponent;
 class ARP_Weapon;
+class UAnimMontage;
+class UAnimInstance;
 
 UCLASS()
 class ARKDE_ROOMPUZZLE_API ARP_Character : public ACharacter
@@ -46,6 +48,11 @@ protected:
 	UPROPERTY(BlueprintReadWrite, Category = "Weapon")
 	ARP_Weapon* CurrentWeapon;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation")
+	UAnimMontage* MeleeMontage;
+
+	UAnimInstance* MyAnimInstance;
+
 public:
 	// Sets default values for this character's properties
 	ARP_Character();
@@ -56,6 +63,8 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	void InitializeReference();
+	
 	void MoveForward(float value);
 	void MoveRight(float value);
 	virtual void Jump() override;
@@ -69,6 +78,9 @@ protected:
 	void StopWeaponAction();
 
 	void TargetingNewObjective();
+
+	void StartMelee();
+	void StopMelee();
 
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Character Features")
 	void BP_Jump();
