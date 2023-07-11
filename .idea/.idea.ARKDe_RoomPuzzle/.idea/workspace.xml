@@ -8,11 +8,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cca5812-67e6-438b-8d9f-3faf251b9f8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Animations/Character/AM_Melee.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultInput.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultInput.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Animations/Character/ABP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/ABP_Character.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animations/Character/AM_Melee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/AM_Melee.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Character.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Dummy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Dummy.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/ParagonWraith/Characters/Heroes/Wraith/Meshes/Wraith_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonWraith/Characters/Heroes/Wraith/Meshes/Wraith_Skeleton.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_Character.cpp" afterDir="false" />
@@ -35,28 +35,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "configurable.group.tools",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\lcbam\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\lcbam\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\lcbam\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\lcbam\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\lcbam\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\lcbam\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ARKDe_RoomPuzzle" type="CppProject" factoryName="C++ Project">
       <configuration_1>
@@ -128,6 +128,7 @@
       <workItem from="1688768146541" duration="342000" />
       <workItem from="1689024961135" duration="138000" />
       <workItem from="1689025110361" duration="2889000" />
+      <workItem from="1689033636052" duration="2144000" />
     </task>
     <servers />
   </component>

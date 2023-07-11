@@ -8,15 +8,17 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Animation/AnimMontage.h"
 #include "Animation/AnimInstance.h"
+#include "Components/CapsuleComponent.h"
 
 // Sets default values
 ARP_Character::ARP_Character()
 {
- 	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	bUseFirstPersonView = true;
 	FPSCameraSocketName = "SCK_Camera";
+	MeleeSocketName = "SCK_Melee";
 
 	FPSCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FPS_CameraComponent"));
 	FPSCameraComponent->bUsePawnControlRotation = true;
@@ -29,6 +31,11 @@ ARP_Character::ARP_Character()
 	TPSCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("TPS_CameraComponent"));
 	TPSCameraComponent->bUsePawnControlRotation = true;
 	TPSCameraComponent->SetupAttachment(SpringArmComponent);
+
+	MeleeDetectorComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("MeleeDetectorComponent"));
+	MeleeDetectorComponent->SetupAttachment(GetMesh(), MeleeSocketName);
+	MeleeDetectorComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
+	MeleeDetectorComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 }
 
 FVector ARP_Character::GetPawnViewLocation() const

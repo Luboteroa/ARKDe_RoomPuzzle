@@ -28,6 +28,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UCameraComponent* TPSCameraComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category= "Components")
+	UCapsuleComponent* MeleeDetectorComponent;
+
 protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
@@ -36,8 +39,11 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
 	bool bIsLookInversion;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
 	FName FPSCameraSocketName;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
+	FName MeleeSocketName;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Key")
 	TArray<FName> DoorKeys;
