@@ -8,7 +8,9 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Animation/AnimMontage.h"
 #include "Animation/AnimInstance.h"
+#include "ARKDe_RoomPuzzle/ARKDe_RoomPuzzle.h"
 #include "Components/CapsuleComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ARP_Character::ARP_Character()
@@ -19,6 +21,7 @@ ARP_Character::ARP_Character()
 	bUseFirstPersonView = true;
 	FPSCameraSocketName = "SCK_Camera";
 	MeleeSocketName = "SCK_Melee";
+	MeleeDamage = 10.0f;
 
 	FPSCameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("FPS_CameraComponent"));
 	FPSCameraComponent->bUsePawnControlRotation = true;
@@ -35,7 +38,8 @@ ARP_Character::ARP_Character()
 	MeleeDetectorComponent = CreateDefaultSubobject<UCapsuleComponent>(TEXT("MeleeDetectorComponent"));
 	MeleeDetectorComponent->SetupAttachment(GetMesh(), MeleeSocketName);
 	MeleeDetectorComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
-	MeleeDetectorComponent->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
+	MeleeDetectorComponent->SetCollisionResponseToChannel(COLLISION_ENEMY, ECR_Overlap);
+	MeleeDetectorComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
 
 FVector ARP_Character::GetPawnViewLocation() const
@@ -59,6 +63,7 @@ void ARP_Character::BeginPlay()
 	Super::BeginPlay();
 	InitializeReference();
 	CreateInitialWeapon();
+	MeleeDetectorComponent->OnComponentBeginOverlap.AddDynamic(this, &ARP_Character::MakeMeleeDamage);
 }
 
 void ARP_Character::InitializeReference()
@@ -137,15 +142,28 @@ void ARP_Character::TargetingNewObjective()
 
 void ARP_Character::StartMelee()
 {
+	if(bIsDoingMelee)
+		return;
+	
 	if(IsValid(MyAnimInstance) && IsValid(MeleeMontage))
 	{
 		MyAnimInstance->Montage_Play(MeleeMontage, 1.5f);
+		SetIsDoingMelee(true);
 	}
 }
 
 void ARP_Character::StopMelee()
 {
 	
+}
+
+void ARP_Character::MakeMeleeDamage(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
+	bool bFromSweep, const FHitResult& SweepResult)
+{
+	if(IsValid(OtherActor))
+	{
+		UGameplayStatics::ApplyPointDamage(OtherActor, MeleeDamage, SweepResult.Location, SweepResult, GetInstigatorController(), this, nullptr);
+	}
 }
 
 void ARP_Character::AddControllerPitchInput(float value)
@@ -202,4 +220,14 @@ void ARP_Character::AddKey(FName NewKey)
 bool ARP_Character::HasKey(FName KeyTag)
 {
 	return DoorKeys.Contains(KeyTag);
+}
+
+void ARP_Character::SetMeleeDetectorCollision(ECollisionEnabled::Type NewCollisionState)
+{
+	MeleeDetectorComponent->SetCollisionEnabled(NewCollisionState);
+}
+
+void ARP_Character::SetIsDoingMelee(bool NewDoingMeleeState)
+{
+	bIsDoingMelee = NewDoingMeleeState;
 }

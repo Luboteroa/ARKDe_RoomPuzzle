@@ -2,6 +2,7 @@
 
 #include "RP_Rifle.h"
 #include "DrawDebugHelpers.h"
+#include "ARKDe_RoomPuzzle/ARKDe_RoomPuzzle.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/Character.h"
 #include "Particles/ParticleSystem.h"
@@ -39,7 +40,7 @@ void ARP_Rifle::StartAction()
 		FVector TraceEndPoint = TraceEnd;
 
 		FHitResult HitResult;
-		bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, EyeLocation, TraceEnd, ECC_Visibility, QueryParams);
+		bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, EyeLocation, TraceEnd, COLLISION_WEAPON, QueryParams);
 
 		if (bHit)
 		{
