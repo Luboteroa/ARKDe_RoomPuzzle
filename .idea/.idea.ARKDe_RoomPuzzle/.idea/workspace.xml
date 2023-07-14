@@ -8,17 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cca5812-67e6-438b-8d9f-3faf251b9f8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Animations/Character/RP_ANS_Melee.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/Animations/Character/RP_ANS_Melee.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Animations/Character/AM_Melee.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/AM_Melee.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Character.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Dummy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Dummy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/ARKDe_RoomPuzzle.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/ARKDe_RoomPuzzle.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Animations/Character/RP_ANS_Melee.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Animations/Character/RP_ANS_Melee.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_Character.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_Rifle.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_Rifle.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/RP_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/RP_Character.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +126,7 @@
       <workItem from="1689025110361" duration="2889000" />
       <workItem from="1689033636052" duration="2144000" />
       <workItem from="1689194611622" duration="3069000" />
+      <workItem from="1689364560530" duration="951000" />
     </task>
     <servers />
   </component>

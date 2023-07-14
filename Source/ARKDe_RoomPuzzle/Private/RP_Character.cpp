@@ -118,6 +118,9 @@ void ARP_Character::CreateInitialWeapon()
 
 void ARP_Character::StartWeaponAction()
 {
+	if(!bCanUseWeapon)
+		return;
+	
 	if (IsValid(CurrentWeapon)) 
 	{
 		CurrentWeapon->StartAction();
@@ -126,6 +129,9 @@ void ARP_Character::StartWeaponAction()
 
 void ARP_Character::StopWeaponAction()
 {
+	if(!bCanUseWeapon)
+		return;
+	
 	if (IsValid(CurrentWeapon))
 	{
 		CurrentWeapon->StopAction();
@@ -148,7 +154,7 @@ void ARP_Character::StartMelee()
 	if(IsValid(MyAnimInstance) && IsValid(MeleeMontage))
 	{
 		MyAnimInstance->Montage_Play(MeleeMontage, 1.5f);
-		SetIsDoingMelee(true);
+		SetMeleeState(true);
 	}
 }
 
@@ -227,7 +233,8 @@ void ARP_Character::SetMeleeDetectorCollision(ECollisionEnabled::Type NewCollisi
 	MeleeDetectorComponent->SetCollisionEnabled(NewCollisionState);
 }
 
-void ARP_Character::SetIsDoingMelee(bool NewDoingMeleeState)
+void ARP_Character::SetMeleeState(bool NewState)
 {
-	bIsDoingMelee = NewDoingMeleeState;
+	bIsDoingMelee = NewState;
+	bCanUseWeapon = !NewState;
 }

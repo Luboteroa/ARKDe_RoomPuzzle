@@ -41,6 +41,9 @@ protected:
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
 	FName FPSCameraSocketName;
+	
+	UPROPERTY(BlueprintReadOnly, Category = "Aiming")
+	bool bCanUseWeapon = true;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Melee")
 	bool bIsDoingMelee;
@@ -114,5 +117,5 @@ public:
 
 	void SetMeleeDetectorCollision(ECollisionEnabled::Type NewCollisionState);
 
-	void SetIsDoingMelee(bool NewDoingMeleeState);
+	void SetMeleeState(bool NewDoingMeleeState);
 };
