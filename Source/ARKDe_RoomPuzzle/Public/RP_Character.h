@@ -39,8 +39,7 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
 	bool bIsLookInversion;
 
-	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
-	FName FPSCameraSocketName;
+	
 	
 	UPROPERTY(BlueprintReadOnly, Category = "Aiming")
 	bool bCanUseWeapon = true;
@@ -49,11 +48,26 @@ protected:
 	bool bIsDoingMelee;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
+	bool bCanMakeCombos;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Melee")
+	bool bIsComboEnable;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
 	float MeleeDamage;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee", meta = (EditCondition = bCanMakeCombos, ClampMin = 1.0, UIMin = 1.0))
+	float MaxComboMultiplier;
+
+	UPROPERTY(BlueprintReadOnly, Category = "Melee", meta = (EditCondition = bCanMakeCombos, ClampMin = 1.0, UIMin = 1.0))
+	float CurrentComboMultiplier;
+
+	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
+	FName FPSCameraSocketName;
 
 	UPROPERTY(VisibleDefaultsOnly, BlueprintReadOnly, Category = "Melee")
 	FName MeleeSocketName;
-
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Key")
 	TArray<FName> DoorKeys;
 
@@ -118,4 +132,10 @@ public:
 	void SetMeleeDetectorCollision(ECollisionEnabled::Type NewCollisionState);
 
 	void SetMeleeState(bool NewDoingMeleeState);
+
+	UFUNCTION(BlueprintCallable)
+	void SetComboEnable(bool NewState);
+
+	UFUNCTION(BlueprintCallable)
+	void ResetCombo();
 };
