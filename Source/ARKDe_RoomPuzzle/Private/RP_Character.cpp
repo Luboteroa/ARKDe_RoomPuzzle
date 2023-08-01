@@ -2,6 +2,8 @@
 
 
 #include "RP_Character.h"
+
+#include "NavigationSystemTypes.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Weapons/RP_Weapon.h"
@@ -10,6 +12,7 @@
 #include "Animation/AnimInstance.h"
 #include "ARKDe_RoomPuzzle/ARKDe_RoomPuzzle.h"
 #include "Components/CapsuleComponent.h"
+#include "Components/RP_HealthComponent.h"
 #include "Kismet/GameplayStatics.h"
 
 // Sets default values
@@ -42,6 +45,8 @@ ARP_Character::ARP_Character()
 	MeleeDetectorComponent->SetCollisionResponseToAllChannels(ECR_Ignore);
 	MeleeDetectorComponent->SetCollisionResponseToChannel(COLLISION_ENEMY, ECR_Overlap);
 	MeleeDetectorComponent->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+
+	HealthComponent = CreateDefaultSubobject<URP_HealthComponent>(TEXT("HealthComponent"));
 }
 
 FVector ARP_Character::GetPawnViewLocation() const
@@ -164,9 +169,6 @@ void ARP_Character::StartMelee()
 				{
 					int montageIndex = CurrentComboMultiplier;
 					CurrentComboMultiplier++;
-
-					UE_LOG(LogTemp, Warning, TEXT("Current Animation Index: %d"), montageIndex);
-					
 					CurrentMeleeMontage = MeleeMontages[montageIndex];			// Use currentShowinAnimation variable if you want to see a specific animation of the list.
 					SetComboEnable(false);
 				}
@@ -184,7 +186,6 @@ void ARP_Character::StartMelee()
 	
 	if(IsValid(MyAnimInstance) && IsValid(CurrentMeleeMontage))
 	{
-		UE_LOG(LogTemp, Warning, TEXT("Should Do AN ANIMATION"));
 		MyAnimInstance->Montage_Play(CurrentMeleeMontage, 1.5f);
 		SetMeleeState(true);
 	}
