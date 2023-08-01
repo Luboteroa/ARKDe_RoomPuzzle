@@ -66,6 +66,7 @@ void ARP_Character::BeginPlay()
 	InitializeReference();
 	CreateInitialWeapon();
 	MeleeDetectorComponent->OnComponentBeginOverlap.AddDynamic(this, &ARP_Character::MakeMeleeDamage);
+	CurrentMeleeMontage = MeleeMontages[0];
 }
 
 void ARP_Character::InitializeReference()
@@ -161,7 +162,12 @@ void ARP_Character::StartMelee()
 			{
 				if(CurrentComboMultiplier < MaxComboMultiplier)
 				{
+					int montageIndex = CurrentComboMultiplier;
 					CurrentComboMultiplier++;
+
+					UE_LOG(LogTemp, Warning, TEXT("Current Animation Index: %d"), montageIndex);
+					
+					CurrentMeleeMontage = MeleeMontages[montageIndex];			// Use currentShowinAnimation variable if you want to see a specific animation of the list.
 					SetComboEnable(false);
 				}
 				else
@@ -176,9 +182,10 @@ void ARP_Character::StartMelee()
 		}
 	}
 	
-	if(IsValid(MyAnimInstance) && IsValid(MeleeMontage))
+	if(IsValid(MyAnimInstance) && IsValid(CurrentMeleeMontage))
 	{
-		MyAnimInstance->Montage_Play(MeleeMontage, 1.5f);
+		UE_LOG(LogTemp, Warning, TEXT("Should Do AN ANIMATION"));
+		MyAnimInstance->Montage_Play(CurrentMeleeMontage, 1.5f);
 		SetMeleeState(true);
 	}
 }
@@ -271,6 +278,8 @@ void ARP_Character::SetComboEnable(bool NewState)
 
 void ARP_Character::ResetCombo()
 {
+	UE_LOG(LogTemp, Warning, TEXT("RESET!"));
 	SetComboEnable(false);
+	CurrentMeleeMontage = MeleeMontages[0];
 	CurrentComboMultiplier = 1.0f;
 }

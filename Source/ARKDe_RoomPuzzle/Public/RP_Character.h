@@ -45,13 +45,16 @@ protected:
 	bool bCanUseWeapon = true;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Melee")
-	bool bIsDoingMelee;
+	bool bIsDoingMelee = false;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
 	bool bCanMakeCombos;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
+	int currentShowinAnimation = 0;
+
 	UPROPERTY(BlueprintReadOnly, Category = "Melee")
-	bool bIsComboEnable;
+	bool bIsComboEnable = true;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
 	float MeleeDamage;
@@ -78,9 +81,10 @@ protected:
 	ARP_Weapon* CurrentWeapon;
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Animation")
-	UAnimMontage* MeleeMontage;
+	TArray<UAnimMontage*> MeleeMontages;
 
 	UAnimInstance* MyAnimInstance;
+	UAnimMontage* CurrentMeleeMontage;
 
 public:
 	// Sets default values for this character's properties
