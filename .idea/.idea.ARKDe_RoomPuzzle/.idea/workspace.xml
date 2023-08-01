@@ -8,22 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cca5812-67e6-438b-8d9f-3faf251b9f8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Animations/Character/Animation_Montage/AM_Combo_01.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animations/Character/Animation_Montage/AM_Combo_02.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animations/Character/Animation_Montage/AM_Combo_03.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Animations/Character/Animation_Montage/AM_Melee.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Core/RP_VictoryZone.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/Core/RP_VictoryZone.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Character/ABP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/ABP_Character.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Character/AM_Melee.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Character/Animations_Imported/Melee/WraithStanding_Melee_Attack_360_HighRetargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/Animations_Imported/Melee/WraithStanding_Melee_Attack_360_HighRetargeted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Character/Animations_Imported/Melee/WraithStanding_Melee_Attack_DownwardRetargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/Animations_Imported/Melee/WraithStanding_Melee_Attack_DownwardRetargeted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Character/Animations_Imported/Melee/WraithStanding_Melee_Attack_HorizontalRetargeted.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/Animations_Imported/Melee/WraithStanding_Melee_Attack_HorizontalRetargeted.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Character.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonWraith/Characters/Heroes/Wraith/Animations/Cast.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonWraith/Characters/Heroes/Wraith/Animations/Cast.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ParagonWraith/Characters/Heroes/Wraith/Meshes/Wraith_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ParagonWraith/Characters/Heroes/Wraith/Meshes/Wraith_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_Character.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_Character.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/RP_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/RP_Character.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Animations/Character/Animation_Montage/AM_Combo_03.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/Animation_Montage/AM_Combo_03.uasset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,6 +128,7 @@
       <workItem from="1689364560530" duration="5141000" />
       <workItem from="1690845714153" duration="2460000" />
       <workItem from="1690871229608" duration="4540000" />
+      <workItem from="1690909099904" duration="1298000" />
     </task>
     <servers />
   </component>
