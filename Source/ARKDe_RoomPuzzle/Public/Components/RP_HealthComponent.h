@@ -6,6 +6,8 @@
 #include "Components/ActorComponent.h"
 #include "RP_HealthComponent.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_SixParams(FOnHealthChangeSignature, URP_HealthComponent*, HealthComponent, AActor*, DamagedActor, float, Damage, const UDamageType*, DamageType,
+	AController*, InstigatedBy, AActor*, DamageCauser);
 
 UCLASS( ClassGroup=(ARKDE_ROOMPUZZLE), meta=(BlueprintSpawnableComponent) )
 class ARKDE_ROOMPUZZLE_API URP_HealthComponent : public UActorComponent
@@ -13,6 +15,12 @@ class ARKDE_ROOMPUZZLE_API URP_HealthComponent : public UActorComponent
 	GENERATED_BODY()
 
 protected:
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Debug")
+	bool bDebug;
+
+	UPROPERTY(BlueprintReadOnly, Category = "HealthComponent")
+	bool bIsDead;
 
 	UPROPERTY(BlueprintReadWrite, Category = "Health Component")
 	float CurrentHealth;
@@ -22,10 +30,17 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, Category = "Health Component")
 	AActor* MyOwner;
-	
-public:	
+
+public:
+
+	UPROPERTY(BlueprintAssignable)
+	FOnHealthChangeSignature OnHealthChangeDelegate;
+
 	// Sets default values for this component's properties
 	URP_HealthComponent();
+
+	UFUNCTION(BlueprintCallable)
+	bool IsDead() const { return  bIsDead; };
 
 protected:
 	// Called when the game starts

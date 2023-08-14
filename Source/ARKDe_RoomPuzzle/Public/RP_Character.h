@@ -12,6 +12,7 @@ class ARP_Weapon;
 class UAnimMontage;
 class UAnimInstance;
 class URP_HealthComponent;
+class ARP_GameMode;
 
 UCLASS()
 class ARKDE_ROOMPUZZLE_API ARP_Character : public ACharacter
@@ -89,6 +90,8 @@ protected:
 
 	UAnimInstance* MyAnimInstance;
 	UAnimMontage* CurrentMeleeMontage;
+	
+	ARP_GameMode* GameModeReference;
 
 public:
 	// Sets default values for this character's properties
@@ -124,6 +127,10 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "Character Features")
 	void BP_Jump();
 
+	UFUNCTION()
+	void OnHealthChange(URP_HealthComponent* CurrentHealthComponent, AActor* DamagedActor, float Damage, const UDamageType* DamageType,
+	AController* InstigatedBy, AActor* DamageCauser);
+	
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

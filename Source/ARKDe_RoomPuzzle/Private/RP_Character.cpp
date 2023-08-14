@@ -14,6 +14,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/RP_HealthComponent.h"
 #include "Kismet/GameplayStatics.h"
+#include "Core/RP_GameMode.h"
 
 // Sets default values
 ARP_Character::ARP_Character()
@@ -72,12 +73,16 @@ void ARP_Character::BeginPlay()
 	CreateInitialWeapon();
 	MeleeDetectorComponent->OnComponentBeginOverlap.AddDynamic(this, &ARP_Character::MakeMeleeDamage);
 	CurrentMeleeMontage = MeleeMontages[0];
+
+	HealthComponent->OnHealthChangeDelegate.AddDynamic(this, &ARP_Character::OnHealthChange);
 }
 
 void ARP_Character::InitializeReference()
 {
 	if(IsValid(GetMesh()))
 		MyAnimInstance = GetMesh()->GetAnimInstance();
+
+	GameModeReference = Cast<ARP_GameMode>(GetWorld()->GetAuthGameMode());
 }
 
 void ARP_Character::MoveForward(float value)
@@ -217,6 +222,15 @@ void ARP_Character::AddControllerPitchInput(float value)
 	{
 		Super::AddControllerPitchInput(value);
 	}*/
+}
+
+void ARP_Character::OnHealthChange(URP_HealthComponent* CurrentHealthComponent, AActor* DamagedActor, float Damage,
+	const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
+{
+	if(HealthComponent->IsDead())
+	{
+		GameModeReference->GameOver(this);
+	}
 }
 
 // Called every frame
