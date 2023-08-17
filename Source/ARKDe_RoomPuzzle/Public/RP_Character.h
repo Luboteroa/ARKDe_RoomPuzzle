@@ -43,8 +43,6 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Aiming")
 	bool bIsLookInversion;
-
-	
 	
 	UPROPERTY(BlueprintReadOnly, Category = "Aiming")
 	bool bCanUseWeapon = true;
@@ -55,12 +53,15 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
 	bool bCanMakeCombos;
 
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
-	int currentShowinAnimation = 0;
-
 	UPROPERTY(BlueprintReadOnly, Category = "Melee")
 	bool bIsComboEnable = true;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Game Over")
+	bool bHasToDestroy;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
+	int currentShowinAnimation = 0;
+	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Melee")
 	float MeleeDamage;
 
@@ -153,4 +154,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void ResetCombo();
+
+	bool HasToDestroy() { return bHasToDestroy; }
 };
