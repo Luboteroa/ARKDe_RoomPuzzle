@@ -8,17 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cca5812-67e6-438b-8d9f-3faf251b9f8e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/BP_SpectatingCamera.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Content/Blueprints/NewGameMode.uasset" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/RP_SpectatingCamera.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Animations/Character/ABP_Character.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Animations/Character/ABP_Character.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Core/BP_GameMode.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Core/BP_GameMode.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Core/RP_GameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Core/RP_GameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/Core/RP_GameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/Core/RP_GameMode.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/RP_Character.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/RP_Character.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +129,7 @@
       <workItem from="1690909099904" duration="3339000" />
       <workItem from="1691987041549" duration="2946000" />
       <workItem from="1692161111499" duration="3071000" />
+      <workItem from="1692551373706" duration="660000" />
     </task>
     <servers />
   </component>
