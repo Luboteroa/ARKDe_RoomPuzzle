@@ -8,7 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cca5812-67e6-438b-8d9f-3faf251b9f8e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Landmine/BP_Landmine_OLD.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Content/Blueprints/Landmine/BP_NewLandMine.uasset" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Traps/LandMine.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Public/Traps/LandMine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Landmine/BP_Landmine.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Landmine/BP_Landmine.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Weapons/Projectiles/BP_ProjectileRocket_New.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Weapons/Projectiles/BP_ProjectileRocket_New.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -130,6 +138,7 @@
       <workItem from="1691987041549" duration="2946000" />
       <workItem from="1692161111499" duration="3071000" />
       <workItem from="1692551373706" duration="660000" />
+      <workItem from="1693237457073" duration="3594000" />
     </task>
     <servers />
   </component>
