@@ -6,6 +6,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystem.h"
 #include "Audio.h"
+#include "Components/AudioComponent.h"
 #include "PhysicsEngine/RadialForceComponent.h"
 
 // Sets default values
@@ -37,12 +38,20 @@ void ALandMine::OnWarningZoneEnter(UPrimitiveComponent* OverlappedComponent, AAc
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	BP_OnWarningZoneEnter();
+	if(IsValid(LandMineSound))
+	{
+		AudioComponent = UGameplayStatics::SpawnSoundAtLocation(this, LandMineSound, GetActorLocation());
+	}
 }
 
 void ALandMine::OnWarningZoneExit(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
 	BP_OnWarningZoneExit();
+	if(IsValid(LandMineSound))
+	{
+		AudioComponent->SetActive(false);
+	}
 }
 
 void ALandMine::TriggerExplosion(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
@@ -57,7 +66,9 @@ void ALandMine::TriggerExplosion(UPrimitiveComponent* OverlappedComponent, AActo
 
 	if(IsValid(ExplosionSound))
 	{
+		AudioComponent->SetActive(false);
 		UGameplayStatics::PlaySoundAtLocation(this, ExplosionSound, GetActorLocation());
+		UGameplayStatics::ApplyDamage(OtherActor, 50, GetOwner()->GetInstigatorController(), this, DamageType); 
 	}
 
 	this->Destroy();

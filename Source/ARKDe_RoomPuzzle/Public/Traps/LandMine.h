@@ -9,6 +9,7 @@
 class URadialForceComponent;
 class UBoxComponent;
 class USphereComponent;
+class UAudioComponent;
 
 UCLASS()
 class ARKDE_ROOMPUZZLE_API ALandMine : public AActor
@@ -26,6 +27,9 @@ protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	UBoxComponent* ExplosionZoneTrigger;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components")
+	USoundBase* LandMineSound;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Physics")
 	URadialForceComponent* RadialForceComponent;
 
@@ -34,6 +38,11 @@ protected:
 	
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Explosion Effects")
 	USoundBase* ExplosionSound;
+	
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Explosion Effects")
+	TSubclassOf<UDamageType> DamageType;
+
+	UAudioComponent* AudioComponent;
 
 public:	
 	ALandMine();
