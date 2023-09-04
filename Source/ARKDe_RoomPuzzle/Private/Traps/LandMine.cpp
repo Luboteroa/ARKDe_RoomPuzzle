@@ -6,6 +6,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Particles/ParticleSystem.h"
 #include "Audio.h"
+#include "RP_Character.h"
 #include "Components/AudioComponent.h"
 #include "PhysicsEngine/RadialForceComponent.h"
 
@@ -68,7 +69,7 @@ void ALandMine::TriggerExplosion(UPrimitiveComponent* OverlappedComponent, AActo
 	{
 		AudioComponent->SetActive(false);
 		UGameplayStatics::PlaySoundAtLocation(this, ExplosionSound, GetActorLocation());
-		UGameplayStatics::ApplyDamage(OtherActor, 50, GetOwner()->GetInstigatorController(), this, DamageType); 
+		UGameplayStatics::ApplyDamage(OtherActor, 50, GetInstigatorController(), this, DamageType);
 	}
 
 	this->Destroy();
