@@ -9,6 +9,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1cca5812-67e6-438b-8d9f-3faf251b9f8e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ARKDe_RoomPuzzle/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Landmine/BP_NewLandMine.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Landmine/BP_NewLandMine.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Maps/TestingMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Traps/LandMine.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/ARKDe_RoomPuzzle/Private/Traps/LandMine.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -132,7 +134,7 @@
       <workItem from="1692551373706" duration="660000" />
       <workItem from="1693237457073" duration="3594000" />
       <workItem from="1693337739937" duration="1000" />
-      <workItem from="1693867923713" duration="1944000" />
+      <workItem from="1693867923713" duration="3700000" />
     </task>
     <servers />
   </component>

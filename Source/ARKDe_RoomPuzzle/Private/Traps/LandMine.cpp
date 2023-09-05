@@ -68,8 +68,16 @@ void ALandMine::TriggerExplosion(UPrimitiveComponent* OverlappedComponent, AActo
 	if(IsValid(ExplosionSound))
 	{
 		AudioComponent->SetActive(false);
-		UGameplayStatics::PlaySoundAtLocation(this, ExplosionSound, GetActorLocation());
-		UGameplayStatics::ApplyDamage(OtherActor, 50, GetInstigatorController(), this, DamageType);
+		AController* InstigatorController = GetInstigatorController(); // Get the controller of the actor causing the damage
+		if(IsValid(InstigatorController))
+		{
+			UGameplayStatics::PlaySoundAtLocation(this, ExplosionSound, GetActorLocation());
+			UGameplayStatics::ApplyDamage(OtherActor, 50, InstigatorController, this, DamageType);
+		}
+		else
+		{
+			UE_LOG(LogTemp, Error, TEXT("Instigathor controller not working for this actor."))
+		}
 	}
 
 	this->Destroy();
